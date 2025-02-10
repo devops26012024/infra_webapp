@@ -126,13 +126,16 @@ After deployment, run:
 aws apigatewayv2 get-apis --region ap-south-1 --query "Items[*].ApiEndpoint"
 
 It will return:
+For Example:
 
 "https://ha7xpaby65.execute-api.ap-south-1.amazonaws.com"
 
 
 ###  Call the API
 Test with curl:
-curl -X GET https://xxxxxx.execute-api.ap-south-1.amazonaws.com/
+Example command:
+
+curl -X GET https://ha7xpaby65.execute-api.ap-south-1.amazonaws.com/
 
 Response:
 json
