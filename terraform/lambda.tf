@@ -14,6 +14,7 @@ resource "aws_lambda_function" "hello_world" {
   runtime       = "nodejs18.x"
   handler       = "index.handler"
   filename      = "lambda.zip"
+  source_code_hash = filebase64sha256("lambda.zip")
 
   memory_size = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["prod"]).memory_size
   timeout     = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["prod"]).timeout
