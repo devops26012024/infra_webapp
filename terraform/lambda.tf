@@ -11,7 +11,7 @@ variable "lambda_configs" {
 
 resource "aws_lambda_function" "hello_world" {
   function_name = "hello-world-${terraform.workspace}"
-  role          = aws_iam_role.github_actions_role.arn
+  role          = arn:aws:iam::970547381233:role/oidc
   runtime       = "nodejs18.x"
   handler       = "index.handler"
   filename      = "lambda.zip"
