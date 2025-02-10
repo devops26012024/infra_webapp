@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 permissions:
   id-token: write
@@ -35,3 +36,10 @@ jobs:
           cd terraform
           terraform workspace select ${{ github.ref_name == 'main' && 'prod' || 'dev' }} || terraform workspace new ${{ github.ref_name == 'main' && 'prod' || 'dev' }}
           terraform apply -auto-approve
+
+      - name: Trigger App Deployment
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/devops26012024/Serverless_webapp/actions/workflows/app-deploy.yml/dispatches \
+            -d '{"ref": "main"}'
