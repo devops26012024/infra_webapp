@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "logs_bucket-95353" {
+resource "aws_s3_bucket" "logs_bucket-9535311" {
   bucket = "lambda-logs-${terraform.workspace}"
   acl    = "private"
 }
