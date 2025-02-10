@@ -13,7 +13,7 @@ resource "aws_iam_role" "github_actions_role" {
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringLike": {
-          "token.actions.githubusercontent.com:sub": "repo:Devendraappa/*"
+          "token.actions.githubusercontent.com:sub": "repo:devops26012024/*"
         }
       }
     }
