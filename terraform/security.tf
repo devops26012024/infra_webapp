@@ -1,7 +1,6 @@
-data "aws_s3_bucket" "pradeep-terraform-1234333" {
+resource "aws_s3_bucket" "logs_bucket" {
   bucket = "lambda-logs-${terraform.workspace}"
-  #acl    = "private"
-  provider = ap-south-1
+  acl    = "private"
 }
 
 resource "aws_cloudwatch_log_group" "lambda_logs" {
