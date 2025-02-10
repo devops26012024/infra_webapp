@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "logs_bucket-9535311" {
+data "aws_s3_bucket" "pradeep-terraform-1234333" {
   bucket = "lambda-logs-${terraform.workspace}"
   acl    = "private"
 }
