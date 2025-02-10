@@ -1,0 +1,37 @@
+name: Deploy Infra
+
+on:
+  #push:
+    branches:
+      - main
+      - dev
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS OIDC authentication
+        run: |
+          export AWS_ROLE_ARN="arn:aws:iam::970547381233:role/GitHubActionsRole-${{ github.ref_name == 'main' && 'prod' || 'dev' }}"
+          echo "AWS_ROLE_ARN=$AWS_ROLE_ARN" >> $GITHUB_ENV
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Initialize Terraform
+        run: |
+          cd terraform
+          terraform init
+
+      - name: Select Workspace & Apply
+        run: |
+          cd terraform
+          terraform workspace select ${{ github.ref_name == 'main' && 'prod' || 'dev' }} || terraform workspace new ${{ github.ref_name == 'main' && 'prod' || 'dev' }}
+          terraform apply -auto-approve
