@@ -1,5 +1,5 @@
 resource "aws_iam_role" "github_actions_role" {
-  name = "GitHubActionsRole-${terraform.workspace}"
+  name = "GitHubOIDC-Terraform-Role"
 
   assume_role_policy = <<EOF
 {
