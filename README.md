@@ -1,15 +1,23 @@
+**Two repositories have been created seperately**
+1. Infrastructure Repository(infra_webapp)
+https://github.com/devops26012024/infra_webapp (Infrastructure repository)
+
+2. App Repository(Serverless_webapp)
+https://github.com/devops26012024/Serverless_webapp (app repository)
+
+
 # infra_webapp
 
-# *🚀 Cloud Infra for Secure Web App (SSO + API Gateway + Lambda)*  
+# Cloud Infra for Secure Web App (SSO + API Gateway + Lambda)*  
 
-## *📌 Overview*  
-This repository contains the *Terraform-based infrastructure* for deploying a *serverless web application* on AWS. The setup ensures a *secure, scalable, and automated deployment pipeline* using:  
+## Overview*  
+This repository contains the *Terraform-based infrastructure* for deploying a *serverless web application* on AWS. The setup uses:  
 
-- *AWS Lambda* (backend execution)  
-- *Amazon API Gateway* (internet-facing API)  
-- *Amazon Cognito* (SSO authentication)  
-- *GitHub Actions* (CI/CD with OIDC authentication)  
-- *Terraform Workspaces* (dev and prod environments)  
+- AWS Lambda: For backend execution
+- Amazon API Gateway: Internet-facing API
+- Amazon Cognito: SSO authentication
+- GitHub Actions: CI/CD with OIDC authentication
+- Terraform Workspaces: dev and prod environments  
 
 ---
 
@@ -35,9 +43,9 @@ This repository contains the *Terraform-based infrastructure* for deploying a *s
 
 ---
 
-## *🛠 Infrastructure Details*  
+##  Infrastructure Details*  
 
-### *✅ AWS Resources Used*
+###  AWS Resources Used*
 | Service        | Purpose  |
 |---------------|---------|
 | *Lambda*    | Runs the serverless backend |
@@ -45,17 +53,16 @@ This repository contains the *Terraform-based infrastructure* for deploying a *s
 | *Cognito*   | Provides SSO authentication |
 | *S3*        | Stores logs & Terraform state |
 | *IAM*       | Secure role-based access control |
-| *CloudWatch* | Monitors logs & errors |
 
-### *🔄 Environment-Based Deployments*
-- *Terraform Workspaces* dynamically configure dev & prod environments.  
-- *GitHub Actions* auto-deploys based on branch (main → prod, dev → dev).  
+###  Environment-Based Deployments
+- Terraform Workspaces* dynamically configure dev & prod environments.  
+- GitHub Actions* auto-deploys based on branch (main → prod, dev → dev).  
 
 ---
 
-## *⚙ Deployment Pipeline (CI/CD)*  
+##  Deployment Pipeline (CI/CD)  
 
-### *🛠 GitHub Actions Workflow*
+###  GitHub Actions Workflow*
 | *Step* | *Description* |
 |----------|----------------|
 | *Checkout Code* | Clones the repository |
@@ -67,7 +74,7 @@ This repository contains the *Terraform-based infrastructure* for deploying a *s
 
 ---
 
-## *🖼 Architecture Diagram*  
+## Architecture Diagram*  
 Here’s an overview of the infrastructure setup:  
 
 
@@ -100,47 +107,31 @@ Here’s an overview of the infrastructure setup:
 
 ---
 
-## *🚀 Deployment Guide*  
+##  Deployment Guide  
 
-### *1️⃣ Set Up AWS OIDC for GitHub Actions*
+###  Set Up AWS OIDC for GitHub Actions*
 - Manually create an IAM role with AssumeRoleWithWebIdentity  
 - Use this *OIDC Provider:*  
   
   token.actions.githubusercontent.com
   
-- Attach necessary *IAM policies* (AdminAccess, LambdaFullAccess, IAMReadOnlyAccess)  
+- IAM policies (AdminAccess, LambdaFullAccess, IAMReadOnlyAccess)  
 
 ---
 
-### *2️⃣ Deploy Infrastructure Using GitHub Actions*
-**👉 Deploy to dev (Testing Environment)**
-sh
-git push origin dev
-
-
-**👉 Deploy to prod (Production Environment)**
-sh
-git push origin main
-
-
-> **Terraform Workspaces will automatically select dev or prod** based on branch.
-
----
-
-## *📢 How to Test*
-### *1️⃣ Get API Gateway URL*
+##  How to Test*
+###  Get API Gateway URL*
 After deployment, run:
-sh
-terraform output api_gateway_url
+
+aws apigatewayv2 get-apis --region ap-south-1 --query "Items[*].ApiEndpoint"
 
 It will return:
 
-https://xxxxxx.execute-api.ap-south-1.amazonaws.com/
+"https://ha7xpaby65.execute-api.ap-south-1.amazonaws.com"
 
 
-### *2️⃣ Call the API*
+###  Call the API
 Test with curl:
-sh
 curl -X GET https://xxxxxx.execute-api.ap-south-1.amazonaws.com/
 
 Response:
@@ -148,39 +139,29 @@ json
 {"message": "Hello, World!"}
 
 
-### *3️⃣ Verify SSO Authentication*
+### Verify SSO Authentication*
 - Open Cognito Console  
 - Go to *User Pool → Clients*  
 - Ensure authentication works  
 
 ---
 
-## *🔒 Security Best Practices Implemented*
-✔ *No AWS Access Keys Used* – GitHub Actions authenticate via OIDC  
-✔ *IAM Least Privilege* – GitHub role has minimal permissions  
-✔ *S3 Encryption* – Terraform state stored securely  
-✔ *CloudWatch Monitoring* – Logs Lambda execution  
+## Security Best Practices Implemented
+✔ *No AWS Access Keys Used* – GitHub Actions authenticate via OIDC   
+✔ *S3 Encryption* – Terraform state stored securely   
 ✔ *API Gateway Authorization* – Protects API  
 
 ---
 
-## *💡 Future Enhancements*
-- ✅ Implement *Custom Domain* for API Gateway  
-- ✅ Add *CloudFront CDN* for better performance  
-- ✅ Enable *AWS WAF* for API protection  
-
----
-
-## *📌 Contributors*
-👤 *Your Name* – Infrastructure Engineer  
-👤 *SubbuHCL* (Reviewer)  
+##  Contributor
+👤 Pradeep Kumar D – Devops Team
+👤 SubbuHCL - Reviewer
 
 ---
 
 ## *📬 Contact*
-📧 Email: *your-email@example.com*  
-🔗 GitHub: *[YourGitHubProfile](https://github.com/Devendraappa)*  
+📧 Email: *pradee030@gmail.com*  
+🔗 GitHub: https://github.com/devops26012024/Serverless_webapp (app repository)
+           https://github.com/devops26012024/infra_webapp (Infrastructure repository)
 
----
 
-This README is *detailed, production-ready, and explains everything step by step.* 🚀 Let me know if you need modifications!
