@@ -1,7 +1,7 @@
 variable "lambda_configs" {
   type = map(object({
     memory_size = number
-    timeout     = number
+    timeout     = number 
   }))
   default = {
     prod = { memory_size = 512, timeout = 15 }
