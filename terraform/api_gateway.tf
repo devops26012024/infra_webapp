@@ -15,6 +15,3 @@ resource "aws_apigatewayv2_route" "default_route" {
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 
-output "api_gateway_url" {
-  value = aws_apigatewayv2_api.http_api.api_endpoint
-}
