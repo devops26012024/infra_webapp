@@ -149,9 +149,9 @@ json
 
 ---
 
-## *📬 Contact*
-📧 Email: *pradee030@gmail.com*  
-🔗 GitHub: https://github.com/devops26012024/Serverless_webapp (app repository)
+## *Contact*
+ Email: *pradee030@gmail.com*  
+ GitHub: https://github.com/devops26012024/Serverless_webapp (app repository)
            https://github.com/devops26012024/infra_webapp (Infrastructure repository)
 
 
