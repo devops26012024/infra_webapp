@@ -16,6 +16,7 @@ variable "dynamodb_table" {
   default     = "terraform-lock"
 }
 
+/*
 variable "lambda_configs" {
   description = "Configuration for Lambda function"
   type = map(object({
@@ -27,11 +28,12 @@ variable "lambda_configs" {
     prod = { memory_size = 512, timeout = 15 }
   }
 }
+*/
 
 variable "github_org" {
   description = "GitHub organization for OIDC authentication"
   type        = string
-  default     = "Devendraappa"
+  default     = "devops26012024"
 }
 
 variable "environment" {
