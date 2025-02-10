@@ -104,19 +104,6 @@ Here’s an overview of the infrastructure setup:
        | Cognito SSO |  
        +------------+  
 
-
----
-
-##  Deployment Guide  
-
-###  Set Up AWS OIDC for GitHub Actions*
-- Manually create an IAM role with AssumeRoleWithWebIdentity  
-- Use this *OIDC Provider:*  
-  
-  token.actions.githubusercontent.com
-  
-- IAM policies (AdminAccess, LambdaFullAccess, IAMReadOnlyAccess)  
-
 ---
 
 ##  How to Test*
