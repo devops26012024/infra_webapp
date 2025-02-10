@@ -4,7 +4,6 @@ variable "lambda_configs" {
     timeout     = number
   }))
   default = {
-    dev  = { memory_size = 128, timeout = 5 }
     prod = { memory_size = 512, timeout = 15 }
   }
 }
@@ -16,6 +15,6 @@ resource "aws_lambda_function" "hello_world" {
   handler       = "index.handler"
   filename      = "lambda.zip"
 
-  memory_size = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["dev"]).memory_size
-  timeout     = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["dev"]).timeout
+  memory_size = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["prod"]).memory_size
+  timeout     = lookup(var.lambda_configs, terraform.workspace, var.lambda_configs["prod"]).timeout
 }
