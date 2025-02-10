@@ -1,3 +1,5 @@
+/*
+
 resource "aws_iam_role" "github_actions_role" {
   name = "GitHubActionsRole-${terraform.workspace}"
 
@@ -21,6 +23,7 @@ resource "aws_iam_role" "github_actions_role" {
 }
 EOF
 }
+*/
 
 /*
 output "role_arn" {
