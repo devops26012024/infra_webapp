@@ -1,6 +1,6 @@
 resource "aws_apigatewayv2_api" "http_api" {
   name          = "http-api-${terraform.workspace}"
-  protocol_type = "HTTP"
+  protocol_type = "HTTPS"
 } 
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {
