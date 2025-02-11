@@ -1,4 +1,4 @@
-variable "lambda_configs" {
+variable "lambda_configs" { 
   type = map(object({
     memory_size = number
     timeout     = number  
