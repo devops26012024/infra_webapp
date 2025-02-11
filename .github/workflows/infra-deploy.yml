@@ -1,7 +1,7 @@
 name: Deploy Infra
 
 on:
-  #push: 
+  push: 
     branches:  
       - main
       - dev
