@@ -37,3 +37,11 @@ resource "aws_apigatewayv2_route" "post_route" {
   route_key = "POST /"
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
+
+resource "aws_apigatewayv2_deployment" "lambda_deployment" {
+  api_id = aws_apigatewayv2_api.http_api.id
+  depends_on = [
+    aws_apigatewayv2_route.get_route,
+    aws_apigatewayv2_route.post_route
+  ]
+}
