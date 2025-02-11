@@ -21,28 +21,6 @@ This repository contains the *Terraform-based infrastructure* for deploying a *s
 
 ---
 
-## *📁 Project Structure*  
-
-
-📂 infra-repo
- ├── 📂 terraform
- │    ├── 📄 provider.tf         # AWS Provider
- │    ├── 📄 workspace.tf        # Terraform Workspaces (dev/prod)
- │    ├── 📄 oidc.tf             # OIDC IAM Role for GitHub Actions
- │    ├── 📄 lambda.tf           # AWS Lambda Function
- │    ├── 📄 api_gateway.tf      # API Gateway Integration
- │    ├── 📄 cognito.tf          # Cognito User Pool (SSO)
- │    ├── 📄 security.tf         # S3 Logging, CloudWatch Logs
- │    ├── 📄 outputs.tf          # Terraform Outputs
- │    ├── 📄 variables.tf        # Variable Definitions
- │    ├── 📄 backend.tf          # S3 Backend for Terraform State
- ├── 📂 .github/workflows
- │    ├── 📄 infra-deploy.yml    # GitHub Actions Workflow (Terraform Deployment)
- ├── 📄 README.md                # Project Documentation
-
-
----
-
 ##  Infrastructure Details*  
 
 ###  AWS Resources Used*
@@ -115,17 +93,17 @@ aws apigatewayv2 get-apis --region ap-south-1 --query "Items[*].ApiEndpoint"
 It will return:
 For Example:
 
-"https://ha7xpaby65.execute-api.ap-south-1.amazonaws.com"
+https://om72cteu24.execute-api.ap-south-1.amazonaws.com
 
 
 ###  Call the API
 Test with curl:
 Example command:
 
-curl -X GET https://ha7xpaby65.execute-api.ap-south-1.amazonaws.com/
+curl -X GET https://om72cteu24.execute-api.ap-south-1.amazonaws.com/hello-world
 
 Response:
-json
+
 {"message": "Hello, World!"}
 
 
@@ -152,6 +130,6 @@ json
 ## *Contact*
  Email: *pradee030@gmail.com*  
  GitHub: https://github.com/devops26012024/Serverless_webapp (app repository)
-           https://github.com/devops26012024/infra_webapp (Infrastructure repository)
+         https://github.com/devops26012024/infra_webapp (Infrastructure repository)
 
 
