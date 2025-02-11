@@ -21,10 +21,3 @@ resource "aws_lambda_function" "hello_world" {
 }
 
 
-resource "aws_lambda_permission" "apigw" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.hello_world.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_apigatewayv2_api.http_api.execution_arn}/*/*"
-}
